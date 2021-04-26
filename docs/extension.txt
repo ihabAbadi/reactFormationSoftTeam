@@ -1,0 +1,2 @@
+extension vscode
+1- simple react snippets
