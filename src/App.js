@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import { FirstComponent } from './FirstComponent';
+import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
+import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 
 // function App() {
 //   return (
@@ -25,8 +27,10 @@ import { FirstComponent } from './FirstComponent';
 
 const App = () => (<div>
       <h1>Hello world</h1>
-      <FirstComponent></FirstComponent>
-      <FirstComponent></FirstComponent>
+      {/* <FirstComponent></FirstComponent>
+      <FirstComponent></FirstComponent> */}
+      {/* <FirstComponentEvent></FirstComponentEvent> */}
+      <PersonsComponent></PersonsComponent>
 </div>)
 
 export default App;
