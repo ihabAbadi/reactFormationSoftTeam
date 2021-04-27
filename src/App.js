@@ -3,6 +3,7 @@ import './App.css';
 import { FirstComponent } from './FirstComponent';
 import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
 import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
+import { ProductsComponent } from './Products/ProductsComponent';
 
 // function App() {
 //   return (
@@ -26,11 +27,12 @@ import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 // }
 
 const App = () => (<div>
-      <h1>Hello world</h1>
+      {/* <h1>Hello world</h1> */}
       {/* <FirstComponent></FirstComponent>
       <FirstComponent></FirstComponent> */}
       {/* <FirstComponentEvent></FirstComponentEvent> */}
-      <PersonsComponent></PersonsComponent>
+      {/* <PersonsComponent></PersonsComponent> */}
+      <ProductsComponent></ProductsComponent>
 </div>)
 
 export default App;

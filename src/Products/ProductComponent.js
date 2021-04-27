@@ -1,0 +1,22 @@
+import React, { PureComponent } from 'react'
+
+export class ProductComponent extends PureComponent  {
+    constructor(props) {
+        super(props);
+        this.state = {  }
+    }
+    render() { 
+        const {product} = this.props
+        return ( 
+            <div className="col-3 p-2">
+                <div className="row justify-content-center">
+                    <div className="col">{product.title}</div>
+                </div>
+                <div className="row justify-content-center">
+                    <div className="col">{product.price}</div>
+                </div>
+            </div>
+         );
+    }
+}
+ 
