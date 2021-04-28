@@ -1,28 +1,24 @@
 import React, { PureComponent } from 'react'
+import { FormPersonComponent } from './FormPersonComponent';
 
 export class PersonsComponent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            persons: ['element 1',' element 2'],
-            person: undefined
+            persons: ['element 1', ' element 2'],
         }
     }
 
-    addPerson = () => {
-        if (this.state.person != undefined) {
-            //operateur spread  => ...
-            this.setState(
-                {
-                    persons: [ ...this.state.persons.slice(1)],
-                    person: undefined
-                });
-        }
+    addPerson = (p) => {
+        this.setState(
+            {
+                persons: [...this.state.persons, p],
+            });
     }
     render() {
         return (
             <div>
-                <input type="text" onChange={(e) => this.setState({ person: e.target.value })} /> <button onClick={this.addPerson}>Ajouter</button>
+                <FormPersonComponent addPerson={this.addPerson}></FormPersonComponent>
                 {this.state.persons.map((element, index) => (
                     <div>{element}</div>
                 ))}

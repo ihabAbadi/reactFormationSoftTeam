@@ -31,8 +31,8 @@ const App = () => (<div>
       {/* <FirstComponent></FirstComponent>
       <FirstComponent></FirstComponent> */}
       {/* <FirstComponentEvent></FirstComponentEvent> */}
-      {/* <PersonsComponent></PersonsComponent> */}
-      <ProductsComponent></ProductsComponent>
+      <PersonsComponent></PersonsComponent>
+      {/* <ProductsComponent></ProductsComponent> */}
 </div>)
 
 export default App;
