@@ -15,6 +15,9 @@ export class ProductComponent extends PureComponent  {
                 <div className="row justify-content-center">
                     <div className="col">{product.price}</div>
                 </div>
+                <div className="row">
+                    <button className="btn btn-danger col" onClick={() => this.props.deleteProduct(product.title)}>supprimer</button>
+                </div>
             </div>
          );
     }
