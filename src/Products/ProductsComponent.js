@@ -1,4 +1,5 @@
 import React, { Component, PureComponent } from 'react'
+import { mockApi } from '../Services/ProductService';
 import { FormProductComponent } from './FormProductComponent';
 import { ProductComponent } from './ProductComponent';
 
@@ -8,14 +9,19 @@ export class ProductsComponent extends PureComponent {
         this.state = { 
             products : [],
             nb : 0,
-            editProduct : undefined
+            editProduct : undefined,
+            loading : true
          }
          console.log("construct component")
+         
     }
 
     componentDidMount() {
         //Appeler des services rest au autre
         console.log("component mounted")
+        mockApi.then((res) => {
+            this.setState({ loading: false, products :[...res] });
+        }).catch(err=> {});
         //On peut mettre à jour le state
     }
 
@@ -75,13 +81,19 @@ export class ProductsComponent extends PureComponent {
         return ( 
             <div className="container">
                 <FormProductComponent confirmEdit={this.confirmEdit} editProduct={this.state.editProduct} addProduct={this.addProduct}></FormProductComponent>
-                <div className="row ">
+                {this.state.loading ? 
+                
+                (<div>En cours... </div>) 
+                
+                :
+                
+                (<div className="row ">
                     {this.state.products.map((element, index) => {
                         return (
                             <ProductComponent edit={this.edit} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
                         )
                     })}
-                </div>
+                </div>)}
             </div>
          );
     }
