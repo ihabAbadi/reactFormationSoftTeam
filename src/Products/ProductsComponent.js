@@ -1,5 +1,6 @@
 import React, { Component, PureComponent } from 'react'
 import { mockApi } from '../Services/ProductService';
+import { CartComponent } from './CartComponent';
 import { FormProductComponent } from './FormProductComponent';
 import { ProductComponent } from './ProductComponent';
 
@@ -10,7 +11,8 @@ export class ProductsComponent extends PureComponent {
             products : [],
             nb : 0,
             editProduct : undefined,
-            loading : true
+            loading : true,
+            panier : []
          }
          console.log("construct component")
          
@@ -54,6 +56,7 @@ export class ProductsComponent extends PureComponent {
     edit = (product) => {
         this.setState({ editProduct: product });
     }
+
     confirmEdit = (id, newProduct) => {
        
         //console.log(newProduct)
@@ -76,10 +79,34 @@ export class ProductsComponent extends PureComponent {
         //Mise à jour state
         this.setState({ products: tmpProducts, editProduct : undefined });
     }
+
+    addToCart = (id) => {
+        
+        //Logique metier d'ajout dans le panier
+        const product = this.state.products.find(p=> p.id == id)
+        const tmpPanier = []
+        let found = false
+        for(let p of this.state.panier) {
+            const newRefProduct = {...p}
+          
+            if(newRefProduct.id == id) {
+                
+                newRefProduct.qty++
+                found = true
+            }
+            tmpPanier.push(newRefProduct)
+        }
+        if(!found) {
+            tmpPanier.push({...product, qty : 1})
+        }
+        this.setState({ panier: tmpPanier });
+    }
+
     render() { 
         //ne jamais mettre à jour le state ici !!!!!!!!
         return ( 
             <div className="container">
+                <CartComponent panier={this.state.panier}></CartComponent>
                 <FormProductComponent confirmEdit={this.confirmEdit} editProduct={this.state.editProduct} addProduct={this.addProduct}></FormProductComponent>
                 {this.state.loading ? 
                 
@@ -90,7 +117,7 @@ export class ProductsComponent extends PureComponent {
                 (<div className="row ">
                     {this.state.products.map((element, index) => {
                         return (
-                            <ProductComponent edit={this.edit} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
+                            <ProductComponent edit={this.edit} addToCart={this.addToCart} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
                         )
                     })}
                 </div>)}
