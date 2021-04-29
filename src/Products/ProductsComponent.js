@@ -31,22 +31,26 @@ export class ProductsComponent extends PureComponent {
         this.setState({ editProduct: product });
     }
     confirmEdit = (id, newProduct) => {
-        // const oldProduct = this.state.products.find(p => p.id == id)
-        // if(oldProduct != undefined) {
-        //     for(let key in oldProduct) {
-        //         oldProduct[key] = newProduct[key]
+       
+        //console.log(newProduct)
+        // const tmpProducts = [...this.state.products]
+        // for(let product of tmpProducts) {
+        //     if(product.id == id) {
+        //         product.title = newProduct.title
+        //         product.price = newProduct.price
+        //         break
         //     }
         // }
-        const tmpProducts = [...this.state.products]
-        for(let product of tmpProducts) {
-            if(product.id == id) {
-                product.title = newProduct.title
-                product.price = newProduct.price
-                break
+        const tmpProducts = []
+        for(let p of this.state.products) {
+            if(p.id == id) {
+                p.title = newProduct.title
+                p.price = newProduct.price
             }
+            tmpProducts.push({...p})
         }
         //Mise à jour state
-        this.setState({ products: [...tmpProducts], editProduct : undefined });
+        this.setState({ products: tmpProducts, editProduct : undefined });
     }
     render() { 
         return ( 

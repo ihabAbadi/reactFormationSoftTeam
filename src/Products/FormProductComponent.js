@@ -7,7 +7,8 @@ export class FormProductComponent extends PureComponent {
             product: {
                 title: '',
                 price:  0
-            }
+            },
+            edit : false
         }
     }
 
@@ -22,10 +23,11 @@ export class FormProductComponent extends PureComponent {
     }
 
     changeField = (e) => {
-        const tmpProduct = {...this.state.product}
+        const tmpProduct =  this.props.editProduct != undefined &&  this.state.edit != true ? {...this.props.editProduct} : {...this.state.product}
         tmpProduct[e.target.name] = e.target.value
         this.setState({
-            product : {...tmpProduct}
+            product : {...tmpProduct},
+            edit : true
         })
     }
 
@@ -40,19 +42,20 @@ export class FormProductComponent extends PureComponent {
             product : {
                 title: '',
                 price: 0
-            }
+            },
+            edit : false
         })
     }
 
     
     render() {
         const {editProduct} = this.props
+        const title = editProduct != undefined &&  this.state.edit != true ? editProduct.title : this.state.product.title
+        const price = editProduct != undefined &&  this.state.edit != true ? editProduct.price : this.state.product.price
         return (
             <div className="row m-1">
-                {/* <input type="text" name="title" value={editProduct != undefined ? this.state.product.title : ''} onChange={this.changeField} placeholder="Titre produit" className="form-control col-5 p-1" /> */}
-                <input type="text" name="title" value={editProduct != undefined ? editProduct.title : ''} onChange={this.changeField} placeholder="Titre produit" className="form-control col-5 p-1" />
-                {/* <input type="number" name="price" onChange={this.changeField} value={editProduct != undefined ? this.state.product.price : 0} placeholder="Prix produit" className="form-control col-5 p-1" /> */}
-                <input type="number" name="price" value={editProduct != undefined ? editProduct.price : 0} onChange={this.changeField} placeholder="Prix produit" className="form-control col-5 p-1" />
+                <input type="text" name="title" value={title} onChange={this.changeField} placeholder="Titre produit" className="form-control col-5 p-1" />
+                <input type="number" name="price" value={price} onChange={this.changeField} placeholder="Prix produit" className="form-control col-5 p-1" />
                 <button className="btn btn-primary p-1 col-2" onClick={this.validProduct}>Ajouter</button>
             </div>
         )
