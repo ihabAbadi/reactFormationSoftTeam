@@ -15,11 +15,11 @@ export class FormProductComponent extends PureComponent {
     //Cycle de vie de notre component
     componentDidMount() {
         //Après le premier rendu
-        console.log(this.props.editProduct)
+        //console.log(this.props.editProduct)
     }
 
     componentDidUpdate() {
-        console.log(this.props.editProduct)
+        //console.log(this.props.editProduct)
     }
 
     changeField = (e) => {

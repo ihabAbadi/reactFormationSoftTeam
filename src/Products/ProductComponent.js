@@ -5,6 +5,9 @@ export class ProductComponent extends PureComponent  {
         super(props);
         this.state = {  }
     }
+
+    
+
     render() { 
         const {product} = this.props
         return ( 

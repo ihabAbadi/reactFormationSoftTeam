@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component, PureComponent } from 'react'
 import { FormProductComponent } from './FormProductComponent';
 import { ProductComponent } from './ProductComponent';
 
@@ -10,9 +10,27 @@ export class ProductsComponent extends PureComponent {
             nb : 0,
             editProduct : undefined
          }
+         console.log("construct component")
     }
 
+    componentDidMount() {
+        //Appeler des services rest au autre
+        console.log("component mounted")
+        //On peut mettre à jour le state
+    }
+
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     return this.props != nextProps || this.state != nextState
+    // }
+
+    componentDidUpdate() {
+        //ne jamais mettre à jour le state ici !!!!!!!!
+        console.log("component updated")
+    }
    
+    componentWillUnmount() {
+        console.log("component wil unmount")
+    }
 
     addProduct = (product) => {
         this.setState(
@@ -53,6 +71,7 @@ export class ProductsComponent extends PureComponent {
         this.setState({ products: tmpProducts, editProduct : undefined });
     }
     render() { 
+        //ne jamais mettre à jour le state ici !!!!!!!!
         return ( 
             <div className="container">
                 <FormProductComponent confirmEdit={this.confirmEdit} editProduct={this.state.editProduct} addProduct={this.addProduct}></FormProductComponent>
