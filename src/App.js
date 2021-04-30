@@ -4,6 +4,7 @@ import { FirstComponent } from './FirstComponent';
 import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
 import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 import { ProductsComponent } from './Products/ProductsComponent';
+import { HomeNavigation } from './DemoNavigation/HomeNavigation';
 
 // function App() {
 //   return (
@@ -32,7 +33,8 @@ const App = () => (<div>
       <FirstComponent></FirstComponent> */}
       {/* <FirstComponentEvent></FirstComponentEvent> */}
       {/* <PersonsComponent></PersonsComponent> */}
-      <ProductsComponent></ProductsComponent>
+      {/* <ProductsComponent></ProductsComponent> */}
+      <HomeNavigation></HomeNavigation>
 </div>)
 
 export default App;
