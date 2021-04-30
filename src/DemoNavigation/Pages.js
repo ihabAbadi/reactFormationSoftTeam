@@ -22,7 +22,7 @@ export const Page2 = () => (<div><h1>Page 2</h1></div>)
 export class Page3 extends PureComponent {
     constructor(props) {
         super(props)
-        console.log(props)
+        console.log("new one")
     }
 
 

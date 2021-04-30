@@ -5,7 +5,7 @@ import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
 import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 import { ProductsComponent } from './Products/ProductsComponent';
 import { HomeNavigation } from './DemoNavigation/HomeNavigation';
-
+import {Home} from "./NavigationProducts/Home"
 // function App() {
 //   return (
 //     <div className="App">
@@ -34,7 +34,8 @@ const App = () => (<div>
       {/* <FirstComponentEvent></FirstComponentEvent> */}
       {/* <PersonsComponent></PersonsComponent> */}
       {/* <ProductsComponent></ProductsComponent> */}
-      <HomeNavigation></HomeNavigation>
+      {/* <HomeNavigation></HomeNavigation> */}
+      <Home></Home>
 </div>)
 
 export default App;

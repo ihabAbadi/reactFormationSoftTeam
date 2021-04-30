@@ -31,3 +31,7 @@ export const mockApi = new Promise((resolve, reject) => {
         resolve(products)
     }, 5000)
 })
+
+export const addProduct = (product) => {
+    products.push({...product, id : products.length+1})
+}
