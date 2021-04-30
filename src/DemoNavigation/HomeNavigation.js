@@ -1,10 +1,22 @@
 import React, { PureComponent } from 'react'
 import {BrowserRouter, Route, Switch, Link} from "react-router-dom"
-import { Page1, Page2 } from './Pages'
+import { Page1, Page2, Page3 } from './Pages'
 
 export class HomeNavigation extends PureComponent {
     constructor(props) {
         super(props)
+        this.state = {
+            routes : [
+                {
+                    path : 'page1',
+                    component : <Page1/>
+                },
+                {
+                    path : 'page2',
+                    component : <Page2/>
+                },
+            ]
+        }
     }
 
     render(){
@@ -17,6 +29,9 @@ export class HomeNavigation extends PureComponent {
                     <li>
                         <Link to="/page2">Page 2</Link>
                     </li>
+                    <li>
+                        <Link to="/page3/12">Page 3</Link>
+                    </li>
                 </nav>
                 {/* ici chargement des page */}
                 <Switch>
@@ -26,6 +41,12 @@ export class HomeNavigation extends PureComponent {
                     <Route path="/page2">
                         <Page2></Page2>
                     </Route>
+                    <Route path="/page3/:id" component={Page3}>
+                        
+                    </Route>
+                    {/* {this.state.routes.map((element,index) => (
+                        <Route key={index} path={element.path} > {element.component}</Route>
+                    ))} */}
                 </Switch>
             </BrowserRouter>
         )
