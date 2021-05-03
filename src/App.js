@@ -5,7 +5,8 @@ import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
 import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 import { ProductsComponent } from './Products/ProductsComponent';
 import { HomeNavigation } from './DemoNavigation/HomeNavigation';
-import {Home} from "./NavigationProducts/Home"
+//import {Home} from "./NavigationProducts/Home"
+import {Home} from "./DemoContext/Home"
 // function App() {
 //   return (
 //     <div className="App">
