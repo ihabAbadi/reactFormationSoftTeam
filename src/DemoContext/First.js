@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
+import { GlobalContext } from './GlobalContext';
 import {TraductionContext} from "./TraductionContext"
 export class First extends PureComponent {
     
-    static contextType = TraductionContext
+    static contextType = GlobalContext
 
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ export class First extends PureComponent {
         return ( 
 
             <div>
-               la langue est  {this.context}
+               la langue est  {this.context.lang}
             </div>
          );
     }
