@@ -28,6 +28,7 @@ export class Product extends PureComponent {
 
     edit = () => {
         //renvoie vers le formulaire
+        this.props.history.push("/form/"+this.state.product.id)
     }
 
     addToCart = () => {
@@ -49,7 +50,7 @@ export class Product extends PureComponent {
                         </div>
                         <div className="row">
                             <button className="btn btn-danger col" onClick={this.deleteProduct}>supprimer</button>
-                            <button className="btn btn-primary col" onClick={() => this.props.edit(product)}>modifier</button>
+                            <button className="btn btn-primary col" onClick={this.edit}>modifier</button>
                             <button className="btn btn-secondary col" onClick={() => this.props.addToCart(product.id)}>Ajouter panier</button>
 
                         </div>

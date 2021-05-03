@@ -22,7 +22,7 @@ export class Home extends PureComponent {
         
                 <Switch>
                     <Route path="/" exact component={Products}></Route>
-                    <Route path="/form" component={FormProduct}></Route>
+                    <Route path="/form" exact component={FormProduct}></Route>                    
                     <Route path="/form/:id" component={FormProduct}></Route>
                     <Route path="/product/:id" component={Product}></Route>
                 </Switch>

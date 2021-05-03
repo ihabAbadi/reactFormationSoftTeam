@@ -47,3 +47,12 @@ export const getProductById = (id) => {
 export const deleteProduct = (id) => {
     products = products.filter(p => p.id != id)
 }
+
+export const updateProduct = (product) => {
+    products.forEach(e => {
+        if(e.id == product.id) {
+            e.title = product.title
+            e.price = product.price
+        }
+    })
+}
