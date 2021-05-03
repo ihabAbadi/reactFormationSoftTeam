@@ -7,12 +7,10 @@ export class ProductComponent extends PureComponent  {
     }
 
 
-    goToForm = () => {
-        this.props.history.push("/form/"+this.props.id)
+    goToDetail = () => {
+        this.props.history.push("/product/"+this.props.product.id)
     }
-    goToCart = () => {
-        this.props.history.push("/cart/"+this.props.id)
-    }
+    
 
     render() { 
         const {product} = this.props
@@ -25,9 +23,8 @@ export class ProductComponent extends PureComponent  {
                     <div className="col">{product.price}</div>
                 </div>
                 <div className="row">
-                    <button className="btn btn-danger col" onClick={() => this.props.deleteProduct(product.id)}>supprimer</button>
-                    <button className="btn btn-primary col" onClick={this.goToForm}>modifier</button>
-                    <button className="btn btn-secondary col" onClick={this.goToCart}>Ajouter panier</button>
+                    
+                    <button className="btn btn-secondary col" onClick={this.goToDetail}>Detail</button>
 
                 </div>
             </div>

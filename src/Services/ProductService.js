@@ -1,4 +1,4 @@
-const products = [
+let products = [
     {
         id : 1,
         title : 'product 1',
@@ -26,12 +26,24 @@ const products = [
     },
 ]
 
-export const mockApi = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(products)
-    }, 5000)
-})
+// export const mockApi = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve(products)
+//     }, 5000)
+// })
+
+export const mockApi = () => {
+    return products
+}
 
 export const addProduct = (product) => {
     products.push({...product, id : products.length+1})
+}
+
+export const getProductById = (id) => {
+    return products.find(e => e.id == id)
+}
+
+export const deleteProduct = (id) => {
+    products = products.filter(p => p.id != id)
 }

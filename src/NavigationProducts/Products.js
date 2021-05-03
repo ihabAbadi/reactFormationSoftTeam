@@ -7,17 +7,18 @@ export class Products extends PureComponent {
         super(props);
         this.state = { 
             products : [],
-            loading : true,
+            loading : false,
          }
    
     }
 
     componentDidMount() {
         //Appeler des services rest au autre
-        console.log("component mounted")
-        mockApi.then((res) => {
-            this.setState({ loading: false, products :[...res] });
-        }).catch(err=> {});
+        console.log("didMount")
+        // mockApi.then((res) => {
+        //     this.setState({ loading: false, products :[...res] });
+        // }).catch(err=> {});
+        this.setState({ products: [...mockApi()]  });
         //On peut mettre à jour le state
     }
 
@@ -52,7 +53,7 @@ export class Products extends PureComponent {
                 (<div className="row ">
                     {this.state.products.map((element, index) => {
                         return (
-                            <ProductComponent history={this.props} edit={this.edit} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
+                            <ProductComponent  history={this.props.history} edit={this.edit} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
                         )
                     })}
                 </div>)}
