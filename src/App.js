@@ -7,6 +7,7 @@ import { ProductsComponent } from './Products/ProductsComponent';
 import { HomeNavigation } from './DemoNavigation/HomeNavigation';
 //import {Home} from "./NavigationProducts/Home"
 import {Home} from "./DemoContext/Home"
+import { NewComponent } from './HOC/Home';
 // function App() {
 //   return (
 //     <div className="App">
@@ -36,7 +37,8 @@ const App = () => (<div>
       {/* <PersonsComponent></PersonsComponent> */}
       {/* <ProductsComponent></ProductsComponent> */}
       {/* <HomeNavigation></HomeNavigation> */}
-      <Home></Home>
+      {/* <Home></Home> */}
+      <NewComponent></NewComponent>
 </div>)
 
 export default App;
