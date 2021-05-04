@@ -56,3 +56,13 @@ export const updateProduct = (product) => {
         }
     })
 }
+
+export const searchProducts = (search) => {
+    if(search == undefined || search == "")
+        return products
+    else {
+        const searchProducts =  [...products.filter(p =>p.title.indexOf(search) >= 0)]
+      
+        return searchProducts
+    }    
+}

@@ -1,8 +1,9 @@
 import React, { Component, PureComponent } from 'react'
-import { mockApi } from '../Services/ProductService';
+import { WithSearch } from '../HOC/WithSearch';
+import { mockApi, searchProducts } from '../Services/ProductService';
 import { ProductComponent } from './ProductComponent';
 
-export class Products extends PureComponent {
+class Products extends PureComponent {
     constructor(props) {
         super(props);
         this.state = { 
@@ -18,7 +19,8 @@ export class Products extends PureComponent {
         // mockApi.then((res) => {
         //     this.setState({ loading: false, products :[...res] });
         // }).catch(err=> {});
-        this.setState({ products: [...mockApi()]  });
+        // this.setState({ products: [...mockApi()]  });
+        this.setState({ products: this.props.data });
         //On peut mettre à jour le state
     }
 
@@ -51,7 +53,7 @@ export class Products extends PureComponent {
                 :
                 
                 (<div className="row ">
-                    {this.state.products.map((element, index) => {
+                    {this.props.data.map((element, index) => {
                         return (
                             <ProductComponent  history={this.props.history} edit={this.edit} deleteProduct={this.deleteProduct} key={index} product={element}></ProductComponent>
                         )
@@ -61,4 +63,6 @@ export class Products extends PureComponent {
          );
     }
 }
- 
+
+
+export default WithSearch(Products, searchProducts)

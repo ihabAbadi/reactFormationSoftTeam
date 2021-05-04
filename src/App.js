@@ -5,8 +5,9 @@ import { FirstComponentEvent } from './ComponentWithEvent/FirstComponentEvent';
 import { PersonsComponent } from './ComponentWithEvent/PersonsComponent';
 import { ProductsComponent } from './Products/ProductsComponent';
 import { HomeNavigation } from './DemoNavigation/HomeNavigation';
-//import {Home} from "./NavigationProducts/Home"
-import {Home} from "./DemoContext/Home"
+import {Home} from "./NavigationProducts/Home"
+import ListUserComponent from "./HOC/ListUserComponent"
+//import {Home} from "./DemoContext/Home"
 import { NewComponent } from './HOC/Home';
 // function App() {
 //   return (
@@ -38,7 +39,8 @@ const App = () => (<div>
       {/* <ProductsComponent></ProductsComponent> */}
       {/* <HomeNavigation></HomeNavigation> */}
       {/* <Home></Home> */}
-      <NewComponent></NewComponent>
+      {/* <NewComponent></NewComponent> */}
+      <ListUserComponent></ListUserComponent>
 </div>)
 
 export default App;

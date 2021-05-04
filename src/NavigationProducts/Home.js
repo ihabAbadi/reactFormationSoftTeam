@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import {BrowserRouter, Route, Switch, Link} from "react-router-dom"
 import { FormProduct } from './FormProduct'
-import {Products} from "./Products"
+import Products from "./Products"
 import {Product} from "./Product"
 export class Home extends PureComponent {
     constructor(props) {
